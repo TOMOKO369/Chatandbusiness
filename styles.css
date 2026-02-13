@@ -1,11 +1,25 @@
 /* styles.css */
+@font-face {
+    font-family: 'SFSelifGothicE';
+    src: url('SFSelifGothicE.TTF') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'UviewDB';
+    src: url('UビューDBdisplay.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 :root {
     /* Common Variables */
     --transition-speed: 0.4s;
     --font-family-base: 'Inter', sans-serif;
     /* Fallback */
-    --font-family-chat: 'M PLUS Rounded 1c', sans-serif;
-    --font-family-business: 'Inter', sans-serif;
+    --font-family-chat: 'SFSelifGothicE', serif;
+    --font-family-business: 'UviewDB', sans-serif;
 
     /* Chat Mode Variables (Harajuku Lolita Style) */
     --chat-bg-gradient: transparent;
@@ -20,17 +34,16 @@
     /* Cute shadow "stack" */
     --chat-animation: bounce 0.6s ease;
 
-    /* Business Mode Variables */
-    --bus-bg-color: #F8F9FA;
+    /* Business Mode Variables (Monochrome) */
+    --bus-bg-color: #FFFFFF;
     --bus-card-bg: #FFFFFF;
-    --bus-text-color: #2c3e50;
-    --bus-accent-color: #00BFA5;
-    /* Emerald Green */
-    --bus-secondary-color: #2979FF;
-    /* Blue */
+    --bus-text-color: #000000;
+    --bus-accent-color: #000000;
+    /* Black */
+    --bus-secondary-color: #000000;
+    /* Black */
     --bus-border-radius: 0px;
-    /* Sharp corners for modern feel */
-    --bus-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    --bus-shadow: none;
 
     /* Dynamic Variables to switch */
     --current-bg: var(--chat-bg-gradient);
@@ -102,9 +115,8 @@ body.mode-business {
     --current-shadow: var(--bus-shadow);
     --current-font: var(--font-family-business);
 
-    /* Business specific subtle pattern */
-    background-image: linear-gradient(to right, #eef2f3, #eef2f3);
-    /* Simple light grey for business */
+    background-image: none;
+    background-color: #FFFFFF;
 }
 
 /* Wrapper */
@@ -136,16 +148,19 @@ body.mode-business {
     transition: background 0.4s ease;
 }
 
-/* Make sure header background matches body background for seamless look */
-body.mode-chat .header-container {
-    background: rgba(255, 255, 255, 0.2);
-    /* Semi-transparent for chat mode */
+/* Business Specific Styles */
+body.mode-business .intro-card,
+body.mode-business .media-item,
+body.mode-business .action-section {
+    border: 1px solid #000;
+    text-align: left;
+    box-shadow: none;
 }
 
+/* Header tweaks for business */
 body.mode-business .header-container {
-    background: #F4F6F8;
-    /* Solid for business mode */
-    border-bottom: 1px solid #ddd;
+    background: #FFFFFF;
+    border-bottom: 1px solid #000;
 }
 
 .main-header {
