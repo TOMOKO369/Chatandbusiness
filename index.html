@@ -19,31 +19,38 @@
             <div class="toggle-switch">
                 <input type="checkbox" id="mode-toggle" class="toggle-checkbox">
                 <label for="mode-toggle" class="toggle-label">
-                    <span class="toggle-text chat-text">雑談 (Chat)</span>
-                    <span class="toggle-text business-text">ビジネス (Business)</span>
+                    <span class="toggle-text chat-text" data-i18n="mode_chat">雑談 (Chat)</span>
+                    <span class="toggle-text business-text" data-i18n="mode_business">ビジネス (Business)</span>
                     <div class="toggle-handle"></div>
                 </label>
             </div>
         </div>
     </div>
 
+    <!-- Language Switcher -->
+    <div class="lang-switch">
+        <button onclick="setLanguage('jp')" class="lang-btn active">JP</button>
+        <button onclick="setLanguage('en')" class="lang-btn">EN</button>
+        <button onclick="setLanguage('ca')" class="lang-btn">CA</button>
+    </div>
+
     <main class="content-wrapper">
 
         <!-- Header Section (Profile Info) -->
         <header class="main-header">
-            <h1 class="profile-name">My Profile</h1>
-            <p class="profile-role">Freelance Creator / Instructor</p>
+            <h1 class="profile-name" data-i18n="profile_name">My Profile</h1>
+            <p class="profile-role" data-i18n="profile_role">Freelance Creator / Instructor</p>
         </header>
 
         <!-- Chat Content Section -->
         <section id="chat-content" class="content-section active">
             <div class="intro-card chat-card">
-                <h2>転んだ数だけ、強くなる。<br>私の人生、ノンストップ生中継！</h2>
+                <h2 data-i18n="chat_intro_title">転んだ数だけ、強くなる。<br>私の人生、ノンストップ生中継！</h2>
             </div>
 
             <div class="media-grid">
                 <div class="media-item spotify-container">
-                    <h3>🎵 音声配信を聴く</h3>
+                    <h3 data-i18n="chat_audio_title">🎵 音声配信を聴く</h3>
                     <!-- Spotify Embed Placeholder -->
                     <iframe style="border-radius:12px"
                         src="https://open.spotify.com/embed/show/24MCmy4LMptfEi2krV8htR?utm_source=generator"
@@ -53,7 +60,7 @@
                 </div>
 
                 <div class="media-item youtube-container">
-                    <h3>📺 動画を観る</h3>
+                    <h3 data-i18n="chat_video_title">📺 動画を観る</h3>
                     <!-- YouTube Embed Placeholder -->
                     <iframe width="100%" height="315"
                         src="https://www.youtube.com/embed/V5lLWHv0iNE?si=Tjr5uTqCKC68TVU1" title="YouTube video player"
@@ -65,7 +72,8 @@
             </div>
 
             <div class="footer-link-container">
-                <a href="https://tomoko369.github.io/Deliverables/" class="chat-link-btn" target="_blank">
+                <a href="https://tomoko369.github.io/Deliverables/" class="chat-link-btn" target="_blank"
+                    data-i18n="chat_link_btn">
                     AIで作った成果物一覧＆自己紹介はこちら
                 </a>
             </div>
@@ -76,16 +84,16 @@
             <img src="business_header.png" alt="Business Header" class="business-header-img">
 
             <div class="intro-card business-card">
-                <h2>「できない」は、「できる」ようになるための予兆です。</h2>
-                <p>ひとりで悩む時間は、もう終わり。<br>あなたの「やりたい」に寄り添い、一番近くで励まし続けるマンツーマン・オンラインレッスン。</p>
-                <p class="business-sub-message">
+                <h2 data-i18n="business_intro_title">「できない」は、「できる」ようになるための予兆です。</h2>
+                <p data-i18n="business_intro_desc">ひとりで悩む時間は、もう終わり。<br>あなたの「やりたい」に寄り添い、一番近くで励まし続けるマンツーマン・オンラインレッスン。</p>
+                <p class="business-sub-message" data-i18n="business_sub_msg">
                     パソコンが苦手なあなたを、ビジネスの主役へ。<br>初心者目線の動画と、心に寄り添う個別指導で、<br>「わからない」が「できる！」に変わる喜びを。</p>
             </div>
 
             <div class="media-grid">
                 <div class="media-item spotify-container">
-                    <h3>【ビジネス配信】知識を力に、明日を動かす</h3>
-                    <p>あなたのビジネスを加速させる、実践的なヒントをお届けします。</p>
+                    <h3 data-i18n="business_audio_title">【ビジネス配信】知識を力に、明日を動かす</h3>
+                    <p data-i18n="business_audio_desc">あなたのビジネスを加速させる、実践的なヒントをお届けします。</p>
                     <iframe style="border-radius:12px"
                         src="https://open.spotify.com/embed/show/2ya0GcdToFCqCwCKDmZUyL?utm_source=generator"
                         width="100%" height="352" frameBorder="0" allowfullscreen=""
@@ -94,8 +102,8 @@
                 </div>
 
                 <div class="media-item youtube-container">
-                    <h3>【初心者向け動画】「わからない」をゼロにする</h3>
-                    <p>つまずきやすいポイントを丁寧に解説。パソコン初心者の方でも安心して、自分のペースで学べます。</p>
+                    <h3 data-i18n="business_video_title">【初心者向け動画】「わからない」をゼロにする</h3>
+                    <p data-i18n="business_video_desc">つまずきやすいポイントを丁寧に解説。パソコン初心者の方でも安心して、自分のペースで学べます。</p>
                     <iframe width="100%" height="315" src="https://www.youtube.com/embed/J31BqC4afTE"
                         title="YouTube video player" frameborder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -104,14 +112,16 @@
             </div>
 
             <div class="action-section">
-                <h3>出演情報</h3>
-                <a href="https://www.youtube.com/channel/UCEY8cUNyv_KM16FUnc9Lwdw" class="business-btn" target="_blank">
+                <h3 data-i18n="business_appearance_title">出演情報</h3>
+                <a href="https://www.youtube.com/channel/UCEY8cUNyv_KM16FUnc9Lwdw" class="business-btn" target="_blank"
+                    data-i18n="business_appearance_btn">
                     出演情報はこちら (YouTube)
                 </a>
             </div>
 
             <div class="footer-link-container">
-                <a href="https://tomoko369.github.io/Deliverables/" class="business-footer-btn" target="_blank">
+                <a href="https://tomoko369.github.io/Deliverables/" class="business-footer-btn" target="_blank"
+                    data-i18n="business_link_btn">
                     AIで作った成果物一覧＆自己紹介はこちら
                 </a>
             </div>
