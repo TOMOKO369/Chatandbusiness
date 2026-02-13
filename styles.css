@@ -148,7 +148,20 @@ body.mode-business {
     transition: background 0.4s ease;
 }
 
+/* Header tweaks */
+body.mode-chat .header-container {
+    background: rgba(255, 255, 255, 0.4);
+}
+
 /* Business Specific Styles */
+.business-header-img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 30px;
+    border: 1px solid #000;
+}
+
 body.mode-business .intro-card,
 body.mode-business .media-item,
 body.mode-business .action-section {
