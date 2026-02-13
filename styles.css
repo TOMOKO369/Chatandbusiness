@@ -1,25 +1,10 @@
-/* styles.css */
-@font-face {
-    font-family: 'SFSelifGothicE';
-    src: url('SFSelifGothicE.TTF') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'UviewDB';
-    src: url('UビューDBdisplay.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
-
 :root {
     /* Common Variables */
     --transition-speed: 0.4s;
     --font-family-base: 'Inter', sans-serif;
     /* Fallback */
-    --font-family-chat: 'SFSelifGothicE', serif;
-    --font-family-business: 'UviewDB', sans-serif;
+    --font-family-chat: 'Kaisei Decol', serif;
+    --font-family-business: 'Kosugi Maru', sans-serif;
 
     /* Chat Mode Variables (Harajuku Lolita Style) */
     --chat-bg-gradient: transparent;
@@ -103,6 +88,16 @@ body.mode-chat {
     --current-radius: var(--chat-border-radius);
     --current-shadow: var(--chat-shadow);
     --current-font: var(--font-family-chat);
+    font-weight: 500;
+    /* KaiseiDecol-Medium */
+}
+
+body.mode-chat button,
+body.mode-chat input,
+body.mode-chat textarea,
+body.mode-chat select {
+    font-family: var(--font-family-chat);
+    font-weight: 500;
 }
 
 /* Business Mode Overrides */
@@ -117,6 +112,13 @@ body.mode-business {
 
     background-image: none;
     background-color: #FFFFFF;
+}
+
+body.mode-business button,
+body.mode-business input,
+body.mode-business textarea,
+body.mode-business select {
+    font-family: var(--font-family-business);
 }
 
 /* Wrapper */
