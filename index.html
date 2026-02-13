@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Self Introduction</title>
+    <link rel="stylesheet" href="styles.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=M+PLUS+Rounded+1c:wght@400;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body class="mode-chat"> <!-- Default to Chat mode -->
+
+    <!-- Fixed Header for Tabs -->
+    <div class="header-container">
+        <div class="theme-switch-container">
+            <div class="toggle-switch">
+                <input type="checkbox" id="mode-toggle" class="toggle-checkbox">
+                <label for="mode-toggle" class="toggle-label">
+                    <span class="toggle-text chat-text">雑談 (Chat)</span>
+                    <span class="toggle-text business-text">ビジネス (Business)</span>
+                    <div class="toggle-handle"></div>
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <main class="content-wrapper">
+
+        <!-- Header Section (Profile Info) -->
+        <header class="main-header">
+            <h1 class="profile-name">My Profile</h1>
+            <p class="profile-role">Freelance Creator / Instructor</p>
+        </header>
+
+        <!-- Chat Content Section -->
+        <section id="chat-content" class="content-section active">
+            <div class="intro-card chat-card">
+                <h2>👋 Hello! (雑談モード)</h2>
+                <p>ここは私のプライベートな一面を紹介するページです。<br>好きな音楽や動画をチェックしてね！</p>
+            </div>
+
+            <div class="media-grid">
+                <div class="media-item spotify-container">
+                    <h3>🎵 My Favorite Playlist</h3>
+                    <!-- Spotify Embed Placeholder -->
+                    <div class="embed-placeholder">
+                        <p>ここにSpotifyの埋め込みコードを貼り付けます</p>
+                        <!-- 
+                            【Spotify埋め込み手順】
+                            1. Spotifyアプリ/ブラウザで共有したいプレイリストを開く
+                            2. 「...」メニュー > 「シェア」 > 「埋め込み」
+                            3. コードをコピーして、以下のコメントアウトを解除し、iframeタグをここに貼り付けてください。
+                        -->
+                        <!-- <iframe style="border-radius:12px" src="..." width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe> -->
+                    </div>
+                </div>
+
+                <div class="media-item youtube-container">
+                    <h3>📺 Recommended Video</h3>
+                    <!-- YouTube Embed Placeholder -->
+                    <div class="embed-placeholder">
+                        <p>ここにYouTubeの埋め込みコードを貼り付けます</p>
+                        <!-- 
+                            【YouTube埋め込み手順】
+                            1. YouTube動画ページで「共有」ボタンをクリック
+                            2. 「埋め込み」を選択
+                            3. コードをコピーして、以下のコメントアウトを解除し、iframeタグをここに貼り付けてください。
+                        -->
+                        <!-- <iframe width="560" height="315" src="..." title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Business Content Section -->
+        <section id="business-content" class="content-section">
+            <div class="intro-card business-card">
+                <h2>🤝 Welcome (ビジネスモード)</h2>
+                <p>こちらは業務実績やビジネス関連のコンテンツを紹介するページです。<br>信頼と実績を大切にしています。</p>
+            </div>
+
+            <div class="media-grid">
+                <div class="media-item spotify-container">
+                    <h3>🎧 Work BGM</h3>
+                    <div class="embed-placeholder">
+                        <p>ここに仕事用Spotifyの埋め込みコードを貼り付けます</p>
+                        <!-- Work Spotify Embed Here -->
+                    </div>
+                </div>
+
+                <div class="media-item youtube-container">
+                    <h3>🎬 Business Insights</h3>
+                    <div class="embed-placeholder">
+                        <p>ここに仕事用YouTubeの埋め込みコードを貼り付けます</p>
+                        <!-- Work YouTube Embed Here -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="action-section">
+                <h3>出演情報</h3>
+                <a href="#" class="business-btn" target="_blank">
+                    出演情報はこちら (YouTube)
+                </a>
+                <p class="note">※ リンク先をYouTubeのURLに変更してください</p>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

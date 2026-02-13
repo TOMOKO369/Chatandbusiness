@@ -1,0 +1,401 @@
+/* styles.css */
+:root {
+    /* Common Variables */
+    --transition-speed: 0.4s;
+    --font-family-base: 'Inter', sans-serif;
+    /* Fallback */
+    --font-family-chat: 'M PLUS Rounded 1c', sans-serif;
+    --font-family-business: 'Inter', sans-serif;
+
+    /* Chat Mode Variables (Harajuku Lolita Style) */
+    --chat-bg-gradient: transparent;
+    /* Using background-image in body.chat-mode rules */
+    --chat-card-bg: rgba(255, 255, 255, 0.95);
+    --chat-text-color: #5D4037;
+    /* Brown text is softer/typical for Lolita */
+    --chat-accent-color: #FF3366;
+    /* Strawberry/Rose Red */
+    --chat-border-radius: 25px;
+    --chat-shadow: 0 8px 0 rgba(255, 182, 193, 0.5), 0 15px 20px rgba(0, 0, 0, 0.1);
+    /* Cute shadow "stack" */
+    --chat-animation: bounce 0.6s ease;
+
+    /* Business Mode Variables */
+    --bus-bg-color: #F8F9FA;
+    --bus-card-bg: #FFFFFF;
+    --bus-text-color: #2c3e50;
+    --bus-accent-color: #00BFA5;
+    /* Emerald Green */
+    --bus-secondary-color: #2979FF;
+    /* Blue */
+    --bus-border-radius: 0px;
+    /* Sharp corners for modern feel */
+    --bus-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+
+    /* Dynamic Variables to switch */
+    --current-bg: var(--chat-bg-gradient);
+    --current-card-bg: var(--chat-card-bg);
+    --current-text-color: var(--chat-text-color);
+    --current-accent: var(--chat-accent-color);
+    --current-radius: var(--chat-border-radius);
+    --current-shadow: var(--chat-shadow);
+    --current-font: var(--font-family-chat);
+}
+
+/* Global Reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--current-font);
+    background: var(--current-bg);
+    /* Default background setup */
+    color: var(--current-text-color);
+    transition: all var(--transition-speed);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-x: hidden;
+}
+
+/* Chat Mode Background Pattern */
+body.mode-chat {
+    background-color: #FFE6EE;
+    /* User provided image */
+    background-image: url('chat_bg.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Chat Mode Card Styling (Lace/Frill effect) */
+body.mode-chat .intro-card,
+body.mode-chat .media-item,
+body.mode-chat .header-container {
+    border: 3px dashed #FFB7C5;
+    /* Stitching effect */
+    background: rgba(255, 255, 255, 0.9);
+}
+
+/* Chat Mode Overrides */
+body.mode-chat {
+    --current-bg: var(--chat-bg-gradient);
+    --current-card-bg: var(--chat-card-bg);
+    --current-text-color: var(--chat-text-color);
+    --current-accent: var(--chat-accent-color);
+    --current-radius: var(--chat-border-radius);
+    --current-shadow: var(--chat-shadow);
+    --current-font: var(--font-family-chat);
+}
+
+/* Business Mode Overrides */
+body.mode-business {
+    --current-bg: var(--bus-bg-color);
+    --current-card-bg: var(--bus-card-bg);
+    --current-text-color: var(--bus-text-color);
+    --current-accent: var(--bus-accent-color);
+    --current-radius: var(--bus-border-radius);
+    --current-shadow: var(--bus-shadow);
+    --current-font: var(--font-family-business);
+
+    /* Business specific subtle pattern */
+    background-image: linear-gradient(to right, #eef2f3, #eef2f3);
+    /* Simple light grey for business */
+}
+
+/* Wrapper */
+.content-wrapper {
+    max-width: 800px;
+    width: 90%;
+    padding: 120px 20px 40px;
+    /* Add top padding to accommodate fixed header */
+    text-align: center;
+    transition: transform 0.5s ease;
+    margin: 0 auto;
+}
+
+/* Header & Toggle Section (Sticky) */
+.header-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background: inherit;
+    /* Inherit the gradient or color from body */
+    backdrop-filter: blur(10px);
+    padding: 15px 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: background 0.4s ease;
+}
+
+/* Make sure header background matches body background for seamless look */
+body.mode-chat .header-container {
+    background: rgba(255, 255, 255, 0.2);
+    /* Semi-transparent for chat mode */
+}
+
+body.mode-business .header-container {
+    background: #F4F6F8;
+    /* Solid for business mode */
+    border-bottom: 1px solid #ddd;
+}
+
+.main-header {
+    margin-bottom: 40px;
+    display: block;
+}
+
+/* Toggle Switch Styles */
+.theme-switch-container {
+    /* No margin top needed if inside sticky header */
+    margin-top: 0;
+    position: relative;
+    z-index: 10;
+}
+
+.toggle-switch {
+    position: relative;
+    display: inline-block;
+}
+
+.toggle-checkbox {
+    display: none;
+}
+
+.toggle-label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 240px;
+    height: 50px;
+    background-color: rgba(255, 255, 255, 0.4);
+    border-radius: 50px;
+    cursor: pointer;
+    position: relative;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    padding: 0 5px;
+    transition: all var(--transition-speed);
+}
+
+/* Custom Toggle Handle */
+.toggle-handle {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: 110px;
+    height: 40px;
+    background-color: #fff;
+    border-radius: 40px;
+    transition: all var(--transition-speed);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+/* Text inside toggle */
+.toggle-text {
+    position: relative;
+    z-index: 2;
+    flex: 1;
+    text-align: center;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #888;
+    transition: color var(--transition-speed);
+    user-select: none;
+}
+
+/* Active State for Toggle */
+/* Unchecked (Chat Mode) */
+#mode-toggle:not(:checked)~.toggle-label .toggle-handle {
+    left: 5px;
+    background-color: #fff;
+    /* White handle */
+}
+
+#mode-toggle:not(:checked)~.toggle-label .chat-text {
+    color: #FF6B6B;
+    /* Active color chat */
+}
+
+/* Checked (Business Mode) */
+#mode-toggle:checked~.toggle-label {
+    border-radius: 4px;
+    /* Sharper */
+    background-color: #E0E0E0;
+}
+
+#mode-toggle:checked~.toggle-label .toggle-handle {
+    left: 125px;
+    /* Move right */
+    border-radius: 2px;
+    /* Sharper handle */
+    background-color: var(--bus-accent-color);
+    /* Emerald green handle */
+}
+
+#mode-toggle:checked~.toggle-label .business-text {
+    color: #fff;
+    /* White text on emerald */
+}
+
+/* Content Sections */
+.content-section {
+    display: none;
+    animation: fadeIn 0.5s ease;
+}
+
+.content-section.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Cards */
+.intro-card,
+.media-item,
+.action-section {
+    background: var(--current-card-bg);
+    border-radius: var(--current-radius);
+    padding: 30px;
+    margin-bottom: 30px;
+    box-shadow: var(--current-shadow);
+    transition: all var(--transition-speed);
+}
+
+/* Chat Specific Animations */
+body.mode-chat .intro-card:hover,
+body.mode-chat .media-item:hover {
+    transform: translateY(-5px) scale(1.02);
+}
+
+/* Business Specific Styles */
+body.mode-business .intro-card {
+    border-left: 5px solid var(--bus-accent-color);
+    text-align: left;
+}
+
+body.mode-business .media-item {
+    border-top: 3px solid var(--bus-secondary-color);
+}
+
+body.mode-business .action-section {
+    border: 1px solid #ddd;
+}
+
+/* Typography adjustments */
+h2 {
+    margin-bottom: 1rem;
+    font-size: 1.8rem;
+    color: var(--current-text-color);
+}
+
+h3 {
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
+    color: var(--current-accent);
+}
+
+p {
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+/* Grid for Media */
+.media-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+/* Embed Placeholder */
+.embed-placeholder {
+    background-color: #f0f0f0;
+    border: 2px dashed #ccc;
+    border-radius: var(--current-radius);
+    height: 200px;
+    /* Placeholder height */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #777;
+    padding: 20px;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+/* Business Button */
+.business-btn {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: var(--bus-accent-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    /* Sharp */
+    font-weight: 600;
+    transition: background-color 0.3s;
+}
+
+.business-btn:hover {
+    background-color: #00897B;
+    /* Darker emerald */
+}
+
+/* Note text */
+.note {
+    font-size: 0.8rem;
+    color: #999;
+    margin-top: 10px;
+}
+
+/* Bouncy Animation for Chat Title */
+@keyframes bounce {
+
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: translateY(0);
+    }
+
+    40% {
+        transform: translateY(-10px);
+    }
+
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+body.mode-chat h1.profile-name {
+    animation: bounce 2s infinite;
+    display: inline-block;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .media-grid {
+        grid-template-columns: 1fr;
+    }
+}
