@@ -162,6 +162,14 @@ body.mode-chat .header-container {
     border: 1px solid #000;
 }
 
+.business-sub-message {
+    font-size: 1.3rem;
+    /* Larger than p, smaller than h2 */
+    margin-top: 30px;
+    font-weight: bold;
+    line-height: 1.6;
+}
+
 body.mode-business .intro-card,
 body.mode-business .media-item,
 body.mode-business .action-section {
