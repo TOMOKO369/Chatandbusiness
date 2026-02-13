@@ -130,4 +130,29 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Event Listener
     modeToggle.addEventListener('change', updateMode);
+
+    // Send Discord Webhook Notification on Load
+    const webhookUrl = 'https://discord.com/api/webhooks/1471822747784183863/OwGx4iBo9vKZ10nbHPIgzuCzZGP-MKSgSWWceJ3ekaqjlM2MFjfv1KkanWXuu8Ugh45y';
+
+    // Check if we've already sent a notification this session to avoid spam on reload (Optional, but good practice)
+    if (!sessionStorage.getItem('notified')) {
+        fetch(webhookUrl, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                content: "Someone visited your Self Introduction page! 🎉"
+            }),
+        })
+            .then(response => {
+                if (response.ok) {
+                    console.log('Notification sent!');
+                    sessionStorage.setItem('notified', 'true');
+                } else {
+                    console.error('Failed to send notification:', response.status);
+                }
+            })
+            .catch(error => console.error('Error sending notification (CORS restriction may apply):', error));
+    }
 });
