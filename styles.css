@@ -421,9 +421,90 @@ body.mode-chat h1.profile-name {
     display: inline-block;
 }
 
+/* Footer Link Containers */
+.footer-link-container {
+    margin-top: 40px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Chat Mode Footer Button */
+.chat-link-btn {
+    display: inline-block;
+    background-color: #FFFFFF;
+    color: var(--chat-accent-color);
+    /* Pink */
+    padding: 15px 30px;
+    border-radius: 50px;
+    font-family: var(--font-family-chat);
+    font-weight: bold;
+    text-decoration: none;
+    box-shadow: 0 4px 15px rgba(255, 182, 193, 0.6);
+    transition: transform 0.2s, box-shadow 0.2s;
+    border: 2px solid #FFB7C5;
+    /* Match dashed border color but solid */
+}
+
+.chat-link-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(255, 182, 193, 0.8);
+}
+
+/* Business Mode Footer Button */
+.business-footer-btn {
+    display: inline-block;
+    background-color: #000000;
+    color: #FFFFFF;
+    padding: 15px 40px;
+    border-radius: 0;
+    /* Sharp for business (black/white theme) */
+    font-family: var(--font-family-business);
+    font-weight: 600;
+    text-decoration: none;
+    border: 1px solid #000;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.business-footer-btn:hover {
+    background-color: #FFFFFF;
+    color: #000000;
+}
+
 /* Responsive */
 @media (max-width: 600px) {
+    .content-wrapper {
+        padding-top: 140px;
+        /* More space for header on mobile if needed */
+        width: 95%;
+    }
+
     .media-grid {
         grid-template-columns: 1fr;
+    }
+
+    .toggle-label {
+        width: 200px;
+        height: 40px;
+    }
+
+    .toggle-handle {
+        width: 90px;
+        height: 30px;
+    }
+
+    #mode-toggle:checked~.toggle-label .toggle-handle {
+        left: 105px;
+    }
+
+    .toggle-text {
+        font-size: 0.8rem;
+    }
+
+    h1.profile-name {
+        font-size: 1.8rem;
+    }
+
+    .business-header-img {
+        margin-bottom: 20px;
     }
 }
