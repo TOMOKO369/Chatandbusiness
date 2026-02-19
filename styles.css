@@ -73,6 +73,7 @@ body.mode-chat {
 /* Chat Mode Card Styling (Lace/Frill effect) */
 body.mode-chat .intro-card,
 body.mode-chat .media-item,
+body.mode-chat .action-section,
 body.mode-chat .header-container {
     border: 3px dashed #FFB7C5;
     /* Stitching effect */
@@ -553,4 +554,38 @@ body.mode-business .lang-btn:hover {
     .business-header-img {
         margin-bottom: 20px;
     }
+}
+
+/* Appearance List Styles */
+.appearance-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 25px;
+    text-align: left;
+}
+
+.appearance-list li {
+    margin-bottom: 10px;
+}
+
+.appearance-list a {
+    color: var(--current-text-color);
+    text-decoration: none;
+    font-size: 0.95rem;
+    display: block;
+    padding: 10px;
+    border-radius: 10px;
+    transition: all 0.2s ease;
+    border: 1px solid transparent;
+}
+
+body.mode-chat .appearance-list a {
+    background-color: rgba(255, 255, 255, 0.6);
+}
+
+body.mode-chat .appearance-list a:hover {
+    color: var(--chat-accent-color);
+    background-color: #FFF0F5;
+    border-color: #FFB7C5;
+    transform: translateX(5px);
 }
